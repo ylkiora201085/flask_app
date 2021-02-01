@@ -1,5 +1,5 @@
 FROM python:3.8-alpine
 COPY ./ /app
-RUN pip install -r /app/requirements.txt
+RUN pip install -r /flask_app/requirements.txt
 EXPOSE 5000
 CMD python /app/hello.py
