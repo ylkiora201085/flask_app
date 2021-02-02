@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/flask_app:latest
+          tags: ylkiora201085/flask_app:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -59,6 +59,6 @@ jobs:
           source: "docker-compose.yaml, nginx/default.conf"
           target: "~/app/"
           script: |
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/flask_app
+            sudo docker pull ylkiora201085/flask_app
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/flask_app
+            sudo docker run --rm -d -p 5000:5000 ylkiora201085/flask_app
